@@ -1,0 +1,1 @@
+(()=>{localStorage.setItem("project",JSON.stringify({project:[{name:"index",task:[],date:[]}]}));const e=JSON.parse(localStorage.getItem("project"));e.project[0].name="abcd",e.project.push({name:"wohoho",task:[],date:[]}),localStorage.setItem("project",JSON.stringify(e))})();
