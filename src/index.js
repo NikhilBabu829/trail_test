@@ -9,12 +9,10 @@ const template = {
 }
 
 const somethingAgain = {
-    name : "wohoho",
+    name : "yohohoho yoohohoho",
     task : [],
     date : []
 }
-
-
 
 localStorage.setItem("project", JSON.stringify(template))
 const allData = JSON.parse(localStorage.getItem('project'))
@@ -34,4 +32,3 @@ button.addEventListener("click",()=>{
     allData.project.push(somethingAgain1)
     localStorage.setItem("project", JSON.stringify(allData))
 })
-
