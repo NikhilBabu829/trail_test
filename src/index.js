@@ -1,34 +1,36 @@
+const form = document.querySelector('.formTest');
+
 const template = {
     project : [
         {
-            name : "index",
-            task : [],
-            date : [],
-        }
+            name : '',
+            value :'',
+        },
     ]
 }
 
-const somethingAgain = {
-    name : "yohohoho yoohohoho",
-    task : [],
-    date : []
+function someFunction(userName, password) {
+    if(localStorage.getItem("data")){
+        const existingData = JSON.parse(localStorage.getItem("data"));
+        console.log(existingData)
+        const newData = {
+            name : userName,
+            value : password
+        }
+        existingData.project[existingData.project.length] = newData
+        localStorage.setItem("data", JSON.stringify(existingData));
+    }
+    else{
+        const temp = template
+        temp.project[0].name = userName;
+        temp.project[0].value = password;
+        localStorage.setItem("data", JSON.stringify(temp))
+    }
 }
 
-localStorage.setItem("project", JSON.stringify(template))
-const allData = JSON.parse(localStorage.getItem('project'))
-allData.project[0].name = "abcd"
-allData.project.push(somethingAgain)
-localStorage.setItem("project", JSON.stringify(allData))
-
-const button = document.querySelector(".btnTest")
-
-button.addEventListener("click",()=>{
-    const somethingAgain1 = {
-        name : "2123",
-        task : [],
-        date : []
-    }
-    const allData = JSON.parse(localStorage.getItem('project'))
-    allData.project.push(somethingAgain1)
-    localStorage.setItem("project", JSON.stringify(allData))
+form.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    const userName = document.querySelector('.username');
+    const password = document.querySelector('.password');
+    someFunction(userName.value, password.value);
 })
