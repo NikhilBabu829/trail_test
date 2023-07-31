@@ -8,7 +8,6 @@ const template = {
         },
     ]
 }
-// 
 function someFunction(userName, password) {
     if(localStorage.getItem("data")){
         const existingData = JSON.parse(localStorage.getItem("data"));
