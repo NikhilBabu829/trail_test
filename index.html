@@ -6,11 +6,22 @@
     <title>Document</title>
 </head>
 <body>
+
     <form class="formTest">
-        <input type="text" name="username" class="username">
-        <input type="text" name="password" class="password">
+        <input type="text" name="username" class="username" required>
+        <input type="text" name="password" class="password" required>
         <button class="btnTest">ClickMe</button>
     </form>
+
+    <label for="index">index</label>
+    <input type="radio" name="radioBtn" id="index" value="index" class="radioBtn" checked>
+
+    <label for="project1">project1</label>
+    <input type="radio" name="radioBtn" value="project1" class="radioBtn"  id="project1">
+
+    <label for="project2">project2</label>
+    <input type="radio" name="radioBtn" value = "project2" class="radioBtn"  id="project2">
+
     <script src="./main.js"></script>
 </body>
 </html>
