@@ -1,31 +1,50 @@
-const form = document.querySelector('.formTest');
+const form = document.querySelector('.formTest');    
+const selectedValue = document.querySelectorAll('input[name="radioBtn"]');
+
+const radioValue = {
+    projectName : 'index'
+}
 
 const template = {
     project : [
         {
-            name : '',
-            value :'',
+            project : '',
+            tasks :[],
         },
     ]
 }
+
 function someFunction(userName, password) {
     if(localStorage.getItem("data")){
         const existingData = JSON.parse(localStorage.getItem("data"));
-        console.log(existingData)
-        const newData = {
-            name : userName,
-            value : password
+        for(let i=0 ; i<existingData.project.length;i++){
+            if(existingData.project[i].project == radioValue.projectName){
+                // const newData = {
+                //     project : radioValue.projectName,
+                //     tasks : [].push(password)
+                // }
+                // existingData.project[existingData.project.length] = newData
+                // console.log(existingData.project[i])
+                existingData.project[i].project = radioValue.projectName
+                existingData.project[i].tasks.push(password) 
+                localStorage.setItem("data", JSON.stringify(existingData));
+            }
         }
-        existingData.project[existingData.project.length] = newData
-        localStorage.setItem("data", JSON.stringify(existingData));
+        
     }
     else{
         const temp = template
-        temp.project[0].name = userName;
-        temp.project[0].value = password;
+        temp.project[0].project = userName;
+        temp.project[0].tasks.push(password);
         localStorage.setItem("data", JSON.stringify(temp))
     }
 }
+
+selectedValue.forEach((ele)=>{
+    ele.addEventListener('change',()=>{ 
+        radioValue.projectName = ele.value
+    }) 
+})
 
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
