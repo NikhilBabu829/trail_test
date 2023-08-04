@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .formToCreateNewProject{
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,16 +17,17 @@
         <input type="text" name="password" class="password" required>
         <button class="btnTest">ClickMe</button>
     </form>
-
-    <label for="index">index</label>
-    <input type="radio" name="radioBtn" id="index" value="index" class="radioBtn" checked>
-
-    <label for="project1">project1</label>
-    <input type="radio" name="radioBtn" value="project1" class="radioBtn"  id="project1">
-    <!-- change -->
-    <label for="project2">project2</label>
-    <input type="radio" name="radioBtn" value = "project2" class="radioBtn"  id="project2">
-
+    <div class="createNewProject">
+        <button class="newProject">create New Project</button>
+        <form class="formToCreateNewProject">
+            <input type="text" class="projectName" name="projectName">
+            <button class="project">Create</button>
+        </form>
+    </div>
+    <div class="projectMenu">
+        <label for="index">index</label>
+        <input type="radio" name="radioBtn" id="index" value="index" class="radioBtn">
+    </div>
     <script src="./main.js"></script>
 </body>
 </html>
